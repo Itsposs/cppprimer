@@ -9,13 +9,10 @@ void elimDups(std::vector<std::string> &words)
 	words.erase(end_unique,words.end());
 }
 
-
-inline void output_words(std::vector<std::string> &words)
+void output(std::vector<std::string> &words)
 {
-	for(const auto word : words)
-	{
-		std::cout << word << " ";
-	}
+	std::for_each(words.cbegin(),words.cend(),
+		[](const std::string &s){ std::cout << s << " ";});
 	std::cout << std::endl;
 }
 
