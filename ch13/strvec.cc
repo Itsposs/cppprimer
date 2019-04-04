@@ -84,3 +84,4 @@ void StrVec::reallocate()
 	cap = elements + newcapacity;
 }
 
+hello world

@@ -2,29 +2,16 @@
 #define _MESSAGE_H
 
 
-#include <iostream>
 #include <set>
-
-
-class Folder
-{
-	public:
-		Folder();
-		Folder(const Folder&);
-		~Folder();
-		Folder& operator=(const Folder&);
-	private:
-		std::set<Message*> msgs;		
-		void addMsg(Message &m);
-		void remMsg(Message &m);
-};
 
 
 
 
 class Message
 {
-		friend class Folder;
+		friend Folder;
+		friend void swap(Message&, Message&);
+		//friend class Folder;
 	public:
 		// folders被隐式初始化为空集合
 		explicit Message(const std::string &str = ""):

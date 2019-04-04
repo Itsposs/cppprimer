@@ -1,7 +1,6 @@
 #include "message.h"
 
 
-
 Message& Message::operator=(const Message &rhs)
 {
 	// 通过先删除指针再插入它们来处理自赋值情况
@@ -50,4 +49,10 @@ Message::Message(const Message &m):
 	add_to_Folders(m);  // 将本消息添加到指向m的Folder中
 }
 
+
+void Message::debug_print()
+{
+	std::cerr << "Message:\n\t" << contents << std::endl;
+	std::cerr << "Appears in " << folders.size() << " Folders" << std::endl;
+}
 
