@@ -1,0 +1,8 @@
+
+
+class allocator
+{
+	private:
+	public:
+
+};
