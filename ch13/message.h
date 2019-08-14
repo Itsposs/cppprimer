@@ -1,10 +1,7 @@
 #ifndef _MESSAGE_H
 #define _MESSAGE_H
 
-
 #include <set>
-
-
 
 
 class Message
@@ -30,5 +27,6 @@ class Message
 		void add_to_Folders(const Message&);
 		void remove_from_Folders();
 };
+
 
 #endif // message.h

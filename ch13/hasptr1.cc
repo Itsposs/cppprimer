@@ -2,11 +2,14 @@
 #include <chrono>
 #include <string>
 
+
+
 class HasPtr
 {
 	public:
 		friend void print(std::ostream &os, HasPtr &s);
 		HasPtr(const std::string &s = std::string()):
+
 			ps(new std::string(s)), i(0) { }
 		// 对ps指向的string,每个HasPtr对象都有自己的拷贝
 		HasPtr(const HasPtr &p):
@@ -14,6 +17,7 @@ class HasPtr
 		HasPtr& operator=(const HasPtr &);
 		~HasPtr() { delete ps; }
 		std::string& operator*() { return *ps; }  // 解引用
+
 	private:
 		std::string *ps;
 		int i;
