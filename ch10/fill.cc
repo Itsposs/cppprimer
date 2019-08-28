@@ -2,6 +2,7 @@
 #include <chrono>
 #include <vector>
 
+
 int main(int argc,char *argv[])
 {
 	using namespace std::chrono;
@@ -10,8 +11,8 @@ int main(int argc,char *argv[])
 	std::vector<int> ivec1 = {1,12,42,32,42,48,72};
 	std::vector<int> ivec2 = {1,12,42,32,42,48,72};
 
-	std::fill(ivec1.begin(),ivec1.end(),7);
-	std::fill_n(ivec2.begin(),ivec2.size(),7);
+	std::fill(ivec1.begin(), ivec1.end(), 7);
+	std::fill_n(ivec2.begin(), ivec2.size(), 7);
 
 	std::cout << (ivec1 == ivec2) << std::endl;
 

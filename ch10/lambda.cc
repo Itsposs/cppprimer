@@ -9,10 +9,10 @@ int main(int argc,char *argv[])
 	using namespace std::chrono;
 	auto begin = high_resolution_clock::now();
 	
-	std::vector<std::string> words = {"hello","world","nice","to"};
+	std::vector<std::string> words = {"hello", "world", "nice", "to"};
 
 	std::stable_sort(words.begin(),words.end(),[](const std::string &a,
-		const std::string &b) { return a.size() < b.size();});
+		const std::string &b) { return a.size() < b.size(); });
 
 	for(const auto &s : words)
 	{
