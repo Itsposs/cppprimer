@@ -5,8 +5,7 @@
 #include <functional>
 
 
-bool check_size(const std::string &s,
-	std::string::size_type sz)
+bool check_size(const std::string &s, std::string::size_type sz)
 {
 	return s.size() >= sz;
 }
@@ -18,7 +17,7 @@ int main(int argc,char *argv[])
 	using namespace std::chrono;
 	auto begin = high_resolution_clock::now();
 	
-	auto check6 = std::bind(check_size,_1,6);
+	auto check6 = std::bind(check_size, _1, 6);
 	std::string s = "hello world!";
 	bool ret = check6(s);
 	
