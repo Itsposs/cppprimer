@@ -11,6 +11,7 @@ void Quick(std::vector<int> &vec, int left, int right)
 	int i = left, j = right;
 	while(i != j)
 	{
+		// right
 		while(vec[j] >= base && i < j) j--;
 		while(vec[i] <= base && i < j) i++;
 		if(i < j)
