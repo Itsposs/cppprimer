@@ -3,6 +3,16 @@
 #include <cassert>
 
 
+void * memcpy(void *dst, const void * src, unsigned int count)
+{
+	assert(dst != NULL && src != NULL);
+
+	void *ret = dst;
+
+	if()
+
+}
+
 
 
 char * strcpy(char *to, const char *from)
