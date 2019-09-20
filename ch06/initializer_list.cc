@@ -13,7 +13,7 @@ int main(int argc,char *argv[])
 	std::cout << "size:" << li.size() << std::endl;
 
 	for(auto beg = li.begin(); beg != li.end();
-		beg++)
+		++beg)
 	{
 		std::cout << *beg << " ";
 	}
