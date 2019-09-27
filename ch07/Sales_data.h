@@ -8,7 +8,6 @@
 
 struct Sales_data {	
 // 为Sales_data的非成员函数所做的友元声明
-friend Sales_data::Sales_data(std::istream &is) { read(is, *this); }
 friend Sales_data add(const Sales_data&, const Sales_data&);
 friend std::istream &read(std::istream&, Sales_data&);
 friend std::ostream &print(std::ostream&, const Sales_data&);
@@ -21,7 +20,7 @@ public:
 		: bookNo(s),
 		  units_sold(n),
 		  revenue(p * n) { }
-	Sales_data(std::istream&) 
+	Sales_data(std::istream &is) 
 		: Sales_data() { read(is, *this); }
 	std::string isbn() const { return bookNo; }
 	Sales_data& combine(const Sales_data&);
