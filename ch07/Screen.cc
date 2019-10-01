@@ -1,22 +1,26 @@
-
 #include "Screen.h"
-#include <iostream>
 
-void test() {
 
-	Screen item1(3, 4, 'c');
-	std::cout << item1.get() << std::endl;
-	std::cout << item1.get(0, 0) << std::endl;
+inline Screen& Screen::set(char c) { 
+	contents[cursor] = c; 
+	return *this; 
+}
+inline Screen& Screen::set(pos r, pos col, char ch) { 
+	contents[r * width + col] = ch; 
+	return *this;
+}
+inline Screen& Screen::move(pos r, pos c) {
+	
+	pos row = r * width;
+	cursor = row + c;
+	return *this;
+}
 
-	Screen item2;
-	item2.set(0, 0, 'v');
-	item2.set('x');
+char Screen::get(pos r, pos c) const {
+
+	pos row = r * width;
+	return contents[row + c];
 }
 
 
-int main(int argc, char *argv[])
-{
-	test();
 
-	return 0;
-}
