@@ -87,8 +87,8 @@ bool operator != (const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 	return !(lhs == rhs);
 }
 
-void testStrBlobPtr()
-{
+void testStrBlobPtr() {
+
 	std::initializer_list<std::string> il{"hello", "world", "nice", "to"};
 	StrBlob strblob1;
 	StrBlob strblob2(il);
@@ -108,8 +108,8 @@ void testStrBlobPtr()
 	//StrBlobPtr strblobptr(strblob);
 }
 
-int main(int argc,char *argv[])
-{
+int main(int argc,char *argv[]) {
+
 	using namespace std::chrono;
 	auto begin = high_resolution_clock::now();
 	

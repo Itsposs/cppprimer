@@ -1,5 +1,6 @@
-#include <iostream>
+
 #include <string>
+#include <iostream>
 
 // 定义基类
 class Quote
@@ -53,13 +54,16 @@ double print_total(std::ostream &os, const Quote &item, size_t n)
 	return ret;
 }
 
-
-int main(int argc, char *argv[])
-{
+void test() {
 	Quote basic = {"621-15476", 3.6};
 	Bulk_quote bulk = {"622-13678", 2.4, 10, 0.6};
 	print_total(std::cout, basic, 20);
 	print_total(std::cout, bulk, 20);
+}
 
+
+int main(int argc, char *argv[])
+{
+	test();
 	return 0;
 }

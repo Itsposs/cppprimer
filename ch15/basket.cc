@@ -89,15 +89,16 @@ double Basket::total_receipt(std::ostream &os) const
 	return sum;
 }
 
-
-
-
-int main(int argc, char *argv[])
-{
+void test() {
 	Basket bsk;
 	bsk.add_item(std::make_shared<Quote>("123", 45));
 	bsk.add_item(std::make_shared<Bulk_quote>("345", 45, 3, .15));
 	bsk.total_receipt(std::cout);
+}
 
+
+int main(int argc, char *argv[])
+{
+	test();
 	return 0;
 }

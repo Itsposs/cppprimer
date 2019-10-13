@@ -1,11 +1,9 @@
 
-
 #include <memory>
 #include <iostream>
 
 
-int main(int argc, char *argv[])
-{
+void test() {
 	std::shared_ptr<int> sp1 = std::make_shared<int>(9);
 	if(sp1.unique())
 		std::cout << sp1.use_count() << std::endl;
@@ -21,5 +19,11 @@ int main(int argc, char *argv[])
 	//
 	sp3.reset(new int(6));
 	std::cout << sp3.use_count() << std::endl;
+
+}
+
+
+int main(int argc, char *argv[]) {
+	test();
 	return 0;
 }

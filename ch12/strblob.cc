@@ -1,10 +1,10 @@
-#include <iostream>
 #include <chrono>
 #include <memory>
 #include <vector>
 #include <string>
-#include <initializer_list>
 #include <stdexcept>
+#include <iostream>
+#include <initializer_list>
 
 
 class StrBlob
@@ -85,8 +85,8 @@ void testStrBlob(StrBlob &str)
 }
 
 
-int main(int argc,char *argv[])
-{
+int main(int argc,char *argv[]) {
+
 	using namespace std::chrono;
 	auto begin = high_resolution_clock::now();
 	

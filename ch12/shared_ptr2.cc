@@ -16,13 +16,16 @@ class B : public A
 	private:
 };
 
-
-int main(int argc, char *argv[])
-{
+void test() {
 	A *a = new B();
 	delete a;
 	std::shared_ptr<A> spa = std::make_shared<B>();
 
+}
+
+int main(int argc, char *argv[]) {
+	
+	test();
 	return 0;
 }
 

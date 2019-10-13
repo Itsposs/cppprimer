@@ -3,9 +3,7 @@
 #include <memory>
 #include <iostream>
 
-
-int main(int argc, char *argv[])
-{
+void test() {
 	std::shared_ptr<int> sp(new int(9));
 	std::weak_ptr<int> wp(sp);
 	std::cout << wp.use_count() << std::endl;
@@ -16,6 +14,9 @@ int main(int argc, char *argv[])
 	}
 	std::cout << *sp << std::endl;
 	wp.reset();
+}
 
+int main(int argc, char *argv[]) {
+	test();
 	return 0;
 }

@@ -1,11 +1,11 @@
 #ifndef STRBLOBPTR_H
 #define STRBLOBPTR_H
 
-#include <initializer_list>
 #include <string>
 #include <memory>
 #include <vector>
 #include <stdexcept>
+#include <initializer_list>
 
 
 class StrBlobPtr;
@@ -13,7 +13,7 @@ class StrBlobPtr;
 class StrBlob
 {
 	public:
-		friend class StrBlobPtr;
+		friend class StrBlobPtr;  // friend
 		typedef std::vector<std::string>::size_type size_type;
 		StrBlob();
 		StrBlob(std::initializer_list<std::string> il);

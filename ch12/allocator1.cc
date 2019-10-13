@@ -1,13 +1,8 @@
-#include <iostream>
 #include <chrono>
 #include <memory>
+#include <iostream>
 
-
-int main(int argc,char *argv[])
-{
-	using namespace std::chrono;
-	auto begin = high_resolution_clock::now();
-	
+void test() {	
 	std::allocator<std::string> alloc;
 	auto const p = alloc.allocate(100);  // 分配100个未初始化的string
 
@@ -25,7 +20,13 @@ int main(int argc,char *argv[])
 	}
 	alloc.deallocate(p, 100);
 
+}
 
+int main(int argc,char *argv[]) {
+	using namespace std::chrono;
+	auto begin = high_resolution_clock::now();
+	
+	test();
 	// TODO
 
 	auto end = high_resolution_clock::now();

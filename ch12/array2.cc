@@ -1,13 +1,9 @@
-#include <iostream>
+
 #include <chrono>
 #include <memory>
+#include <iostream>
 
-
-int main(int argc,char *argv[])
-{
-	using namespace std::chrono;
-	auto begin = high_resolution_clock::now();
-	
+void test() {
 	std::unique_ptr<int[]> up(new(std::nothrow) int[6]{1, 2, 3, 4, 5, 6});
 	for(size_t i = 0; i != 6; ++i)
 	{
@@ -24,6 +20,15 @@ int main(int argc,char *argv[])
 	}
 	std::cout << std::endl;
 	sp.reset();
+}
+
+int main(int argc, char *argv[])
+{
+	using namespace std::chrono;
+	auto begin = high_resolution_clock::now();
+	
+	test();
+
 	// TODO
 
 	auto end = high_resolution_clock::now();
