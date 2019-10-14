@@ -1,38 +1,24 @@
-#include <iostream>
-#include <chrono>
-#include <utility>
+
 #include <vector>
 #include <string>
-#include <map>
+#include <utility>
+#include <iostream>
 
-
-void add_family(std::map<std::string,std::vector<std::pair<std::string,std::string>>> &families,
-	const std::string &family)
-{
-	families[family];
+std::pair<std::string, int>
+func(std::vector<std::string> &vec) {
+	if (!vec.empty())
+		// return std::make_pair(vec.back(), vec.back().size());
+		return {vec.back(), vec.back().size()};
+	else
+		return std::pair<std::string, int>();
 }
 
-void add_child(std::map<std::string,std::vector<std::pair<std::string,std::string>>> &families,
-	const std::string &family,const std::string &child,const std::string &birthday)
-{
-	families[family].push_back({child,birthday});
-}
 
-int main(int argc,char *argv[])
-{
-	using namespace std::chrono;
-	auto begin = high_resolution_clock::now();
+void test() {
 	
-	std::map<std::string,std::vector<std::pair<std::string,std::string>>> families;
+}
 
-	// 添加家庭\孩子\生日等信息
-	add_family(families,"Smith");
-	add_child(families,"Smith","Jack","2018-03-15");
 
-	// TODO
-
-	auto end = high_resolution_clock::now();
-	std::cout << "time:" << duration_cast<milliseconds> (end - begin).count()
-			  << "ms." << std::endl;
+int main(int argc, char *argv[]) {
 	return 0;
 }

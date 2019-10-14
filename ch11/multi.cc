@@ -1,46 +1,26 @@
-#include <iostream>
-#include <chrono>
-#include <string>
-#include <map>
+
 #include <set>
+#include <vector>
+#include <iostream>
 
+void test() {
+	std::vector<int> ivec;
+	using size_type = std::vector<int>::size_type;
 
-int main(int argc,char *argv[])
-{
-	using namespace std::chrono;
-	auto begin = high_resolution_clock::now();
-	
-	std::string search_item("Alain de Botton");
-	
-	std::multimap<std::string,std::string> authors;
-	/*
-	auto entries = authors.count(search_item);
-	auto iter = authors.find(search_item);
-
-	while(entries)
-	{
-		std::cout << iter -> second << std::endl;
-		++iter;
-		--entries;
-	}
-	*/
-
-	for(auto beg = authors.lower_bound(search_item), end = authors.upper_bound(search_item);
-			beg != end; ++beg)
-	{
-		std::cout << beg -> second << std::endl;
+	for (size_type i = 0; i != 10; ++i) {
+		ivec.push_back(i);
+		ivec.push_back(i);
 	}
 
-	for(auto pos = authors.equal_range(search_item);
-		pos.first != pos.second; ++pos.first)
-	{
-		std::cout << pos.first -> second << std::endl;
-	}
+	std::set<int> iset(ivec.cbegin(), ivec.cend());
+	std::multiset<int> miset(ivec.cbegin(), ivec.cend());
+	std::cout << ivec.size() << std::endl;
+	std::cout << iset.size() << std::endl;
+	std::cout << miset.size() << std::endl;
+}
 
-	// TODO
 
-	auto end = high_resolution_clock::now();
-	std::cout << "time:" << duration_cast<milliseconds> (end - begin).count()
-			  << "ms." << std::endl;
+int main(int argc, char *argv[]) {
+	test();
 	return 0;
 }
