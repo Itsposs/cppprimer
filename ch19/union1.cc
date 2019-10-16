@@ -1,5 +1,7 @@
 
 
+#include <iostream>
+
 class Token
 {
 	public:
@@ -89,4 +91,12 @@ Token &Token::operator=(const Token &t)
 	return *this;
 }
 
+void test() {
+
+}
+
+
+int main(int argc, char *argv[]) {
+	return 0;
+}
 

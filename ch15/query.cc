@@ -19,6 +19,7 @@ class Query
 		QueryResult eval(const TextQuery &t) const { return q -> eval(t); }
 		std::string rep() const { return q -> rep(); }
 	private:
+		// 私有构造函数
 		Query(std::shared_ptr<Query_base> query) : q(query) { }
 		std::shared_ptr<Query_base> q;
 };

@@ -5,7 +5,7 @@ class QueryResult;
 
 class Query_base
 {
-	friend class Query;
+	friend class Query;  // interface class
 	protected:
 		using line_no = TextQuery::line_no;  // 用于eval函数
 		virtual ~Query_base() = default;
