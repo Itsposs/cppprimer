@@ -1,14 +1,14 @@
 #include <iostream>
 
-class Base
-{
+class Base {
+	public:
+	private:
 	protected:
 		int port_mem;
 };
 
 
-class Sneaky : public Base
-{
+class Sneaky : public Base {
 	friend void clobber(Sneaky&);
 	friend void clobber(Base&);
 	public:
@@ -20,8 +20,7 @@ class Sneaky : public Base
 };
 
 
-void clobber(Sneaky &s)
-{
+void clobber(Sneaky &s) {
 	s.j = s.port_mem = 0;
 }
 
@@ -30,16 +29,14 @@ void clobber(Sneaky &s)
 //	b.port_mem = 0;
 //}
 
-void test(){
+void test() {
 	Sneaky s1;
 	clobber(s1);
-	s1.print();
-		
+	s1.print();		
 }
 
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
 	test();
 	return 0;
 }

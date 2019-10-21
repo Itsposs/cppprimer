@@ -1,37 +1,32 @@
+
+
 class Base {
+	friend class Pal;
 	public:
-		void pub_mem();
 	protected:
-    int prot_mem;
+		int port_mem;
+};
+
+class Sneaky : public Base {
+	friend void clobber(Sneaky&);
+	friend void clobber(Base&);
+	int j;
+};
+
+class Pal {
+	public:
+		int f(Base b) { return b.port_mem; }
+		//int f2(Sneaky s) { return s.j; }  // error
+		//base class subobject
+		int f3(Sneaky s) { return s.port_mem; }
 	private:
-    char priv_mem;
 };
 
-struct Pub_Derv : public Base {
-	int f() { return prot_mem; }
-//  char g() { return priv_mem; }  // error
+class D2 : public Pal {
+	public:
+		//int mem(Base b) { return b.port_mem; }  // error
 };
-
-struct Priv_Derv : private Base {
-	int f1() const { return prot_mem; }
-};
-
-struct Derived_from_Public : public Pub_Derv {
-  int use_base() { return prot_mem; }
-};
-
-struct Derived_from_Private : public Priv_Derv {
-//  int use_base() { return prot_mem; }  // error
-};
-
-void test() {
-    Pub_Derv d1;
-    Priv_Derv d2;
-    d1.pub_mem();
-//    d2.pub_mem();  // error
-}
 
 int main(int argc, char *argv[]) {
-	test();
 	return 0;
 }

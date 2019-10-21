@@ -1,26 +1,21 @@
+
+
 #include <iostream>
 
-
-class Base
-{
+class Base {
 	public:
 		static void statmem();
 };
 
-void Base::statmem()
-{
+void Base::statmem() { }
 
-}
-
-class Derived : public Base
-{
+class Derived : public Base {
 	public:
 		void f(const Derived&);
 };
 
 
-void f(const Derived &derived_obj)
-{
+void f(const Derived &derived_obj) {
 	Base::statmem();
 	Derived::statmem();
 	derived_obj.statmem();
@@ -28,7 +23,6 @@ void f(const Derived &derived_obj)
 }
 
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
 	return 0;
 }

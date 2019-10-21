@@ -1,6 +1,6 @@
 
-#include <iostream>
 
+#include <iostream>
 
 struct Base {
 	public:
