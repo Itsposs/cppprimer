@@ -7,16 +7,11 @@
 
 
 std::string make_plural(size_t ctr, const std::string &word,
-	const std::string &ending)
-{
+	const std::string &ending) {
 	return (ctr > 1) ? word + ending : word;
 }
 
-int main(int argc,char *argv[])
-{
-	using namespace std::chrono;
-	auto begin = high_resolution_clock::now();
-	
+void test() {
 	std::vector<std::string>::size_type sz = 5;
 	std::vector<std::string> words = {"hello", "word", "nice", "to", "meet"};
 	
@@ -28,11 +23,17 @@ int main(int argc,char *argv[])
 	auto count = words.end() - wc;
 	std::cout << count << " " << make_plural(count,"word","s")
 		 << " of length " << sz << " or longer" << std::endl;
+}
 
+int main(int argc, char *argv[]) {
+	using namespace std::chrono;
+	auto begin = high_resolution_clock::now();
+	
+	test();
 	// TODO
 
 	auto end = high_resolution_clock::now();
 	std::cout << "time:" << duration_cast<milliseconds> (end - begin).count()
-			  << "ms." << std::endl;
+						<< "ms." << std::endl;
 	return 0;
 }

@@ -1,8 +1,9 @@
-#include <iostream>
-#include <chrono>
 
-int main(int argc,char *argv[])
-{
+#include <chrono>
+#include <iostream>
+
+
+int main(int argc, char *argv[]) {
 	using namespace std::chrono;
 	auto begin = high_resolution_clock::now();
 

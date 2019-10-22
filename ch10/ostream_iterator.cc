@@ -2,15 +2,21 @@
 
 #include <chrono>
 #include <vector>
-#include <string>
+#include <iterator>
 #include <iostream>
-#include <algorithm>
 
 void test() {
-	
-	std::vector<std::string> words = {"hello", "world", "nice", "to"};
-	std::for_each(words.cbegin(), words.cend(), [](const std::string &s)
-		{ std::cout << s << " "; });
+	std::vector<int> vec = {1, 3, 5, 7, 9, 0};
+	std::ostream_iterator<int> out_iter(std::cout, " ");
+
+	for (const auto val : vec) {
+		*out_iter++ = val;
+	}
+	std::cout << std::endl;
+
+
+	// equivalent
+	std::copy(vec.begin(), vec.end(), out_iter);
 	std::cout << std::endl;
 }
 
@@ -18,7 +24,7 @@ int main(int argc, char *argv[]) {
 	using namespace std::chrono;
 	auto begin = high_resolution_clock::now();
 	
-	test();	
+	test();
 	// TODO
 
 	auto end = high_resolution_clock::now();

@@ -1,8 +1,9 @@
-#include <iostream>
-#include <chrono>
 
-void fcn3()
-{
+
+#include <chrono>
+#include <iostream>
+
+void fcn3() {
 	size_t v1 = 42;
 
 	// f 可以改变它所捕获的变量的值
@@ -12,8 +13,7 @@ void fcn3()
 	std::cout << j << std::endl;
 }
 
-void fcn4()
-{
+void fcn4() {
 	size_t v1 = 42;
 
 	// v1是一个非const变量的引用
@@ -24,18 +24,20 @@ void fcn4()
 	std::cout << j << std::endl;
 }
 
+void test() {
+	fcn3();
+	fcn4();
+}
 
-int main(int argc,char *argv[])
-{
+int main(int argc,char *argv[]) {
 	using namespace std::chrono;
 	auto begin = high_resolution_clock::now();
 	
-	fcn3();
-	fcn4();
+	test();	
 	// TODO
 
 	auto end = high_resolution_clock::now();
 	std::cout << "time:" << duration_cast<milliseconds> (end - begin).count()
-			  << "ms." << std::endl;
+			      << "ms." << std::endl;
 	return 0;
 }
