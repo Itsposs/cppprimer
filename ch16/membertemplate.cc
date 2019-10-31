@@ -1,9 +1,11 @@
-#include <iostream>
+
+
 #include <memory>
+#include <string>
+#include <iostream>
 
 
-class DebugDelete
-{
+class DebugDelete {
 	public:
 		DebugDelete(std::ostream &s = std::cerr) :
 			os(s) { }
@@ -14,18 +16,20 @@ class DebugDelete
 		std::ostream &os;
 };
 
-
-int main(int argc, char *argv[])
-{
+void test() {
 	double *dp = new double;
-	DebugDelete dp;  // 可像delete表达式一样使用对象
+	DebugDelete()(dp);  // 可像delete表达式一样使用对象
 
 	int *ip = new int;
 	// 在一个临时DebugDelete对象上调用operator()(int*)
 	DebugDelete()(ip);
+	{
+		std::unique_ptr<int, DebugDelete> p(new int, DebugDelete());
+		std::unique_ptr<std::string, DebugDelete> sp(new std::string, DebugDelete());
+	}
+}
 
-	std::unique_ptr<int, DebugDelete> p(new int, DebugDelete);
-	std::unique_ptr<std::string. DebugDelete> sp(new std::string, DebugDelete);
-
+int main(int argc, char *argv[]) {
+	test();
 	return 0;
 }

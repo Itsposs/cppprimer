@@ -6,10 +6,17 @@
 #include <memory>
 #include <stdexcept>
 
+template <typename> class BlobPtr;
+template <typename> class blob;
+template <typename T>
+bool operator==(const Blob<T>&, const Blob<T>&);
+
 
 template <typename T>
 class Blob
 {
+	friend class BlobPtr<T>;
+	friend bool operator==<T>(const Blob<T>&, const Blob<T>&);
 	public:
 		typedef T value_type;
 		typedef typename std::vector<T>::size_type size_type;
