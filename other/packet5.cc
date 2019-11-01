@@ -2,10 +2,8 @@
 
 #include <iostream>
 
-
 template <typename T>
 void printarg(T t) { std::cout << t << std::endl; }
-
 
 template <typename ...Args>
 void expand(Args... args) {
@@ -14,9 +12,7 @@ void expand(Args... args) {
 	std::initializer_list<int>{(printarg(args), 0)...};
 }
 
-
 void test() { expand(1, 2, 3, 4); }
-
 
 
 int main(int argc, char *argv[]) {

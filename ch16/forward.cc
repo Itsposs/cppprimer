@@ -1,6 +1,4 @@
 
-
-
 #include <memory>
 #include <iostream>
 
@@ -17,9 +15,9 @@ void PrintT(T&& t) {
 
 template <typename T>
 void TestForward(T&& v) {
-	//PrintT(v);
-	//PrintT(std::forward<T>(v));
-	//PrintT(std::move(v));
+	PrintT(v);
+	PrintT(std::forward<T>(v));
+	PrintT(std::move(v));
 }
 
 void Test() {

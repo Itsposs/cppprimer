@@ -3,7 +3,6 @@
 #include <iostream>
 #include <type_traits>
 
-
 template <typename T>
 typename std::enable_if<std::is_arithmetic<T>::value, T>::type 
 foo(T t) {

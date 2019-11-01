@@ -3,8 +3,8 @@
 #include <iostream>
 #include <type_traits>
 
-
 struct absInt {
+	// default construct
 	int operator()(int val) const { 
 		return val < 0 ? -val : val;
 	}
