@@ -13,10 +13,28 @@ class Optional {
 	public:
 		Optional() {}
 		Optional(const T& v) { Create(v); }
+		Optional(T &&v) { Create(std::move(v)); }
 		Optional(const Optional &other) {
 			if (other.IsInit())
 				Assign(other);
 		}
+		Optional(Optional &&other) {
+			if (other.IsInit()) {
+				Assign(std::move(other));
+				other.Destroy();
+			}
+		}
+
+		Optional& operator=(Optional &&other) {
+			Assign(std::move(other));
+			return *this;
+		}
+		
+		Optional& operator=(const Optional &other) {
+			Assign(other);
+			return *this;
+		}
+
 		~Optional() { Destroy(); }
 
 		template <typename... Args>
@@ -25,12 +43,29 @@ class Optional {
 			Create(std::forward<Args>(args)...);
 		}
 
-		bool Isinit() const { return m_hasInit; }
+		bool IsInit() const { return m_hasInit; }
 		explicit operator bool() const { return IsInit(); }
+		
+		T& operator*() { return *((T*)(&m_data)); }
+
 		T const& operator*() const {
 			if (IsInit()) { return *((T*)(&m_data)); }
 			throw std::logic_error("is not init.");
 		}
+		
+		bool operator == (const Optional<T> &rhs) const {
+			return (!bool(*this)) != (!rhs) ? false : (!bool(*this) ? true : 
+					(*(*this)) == (*rhs));
+		}
+
+		bool operator < (const Optional<T> &rhs) const {
+			return !rhs ? false : (!bool(*this) ? true : (*(*this) < (*rhs)));
+		}
+
+		bool operator != (const Optional<T> &rhs) { 
+			return !(*this == (rhs));
+		}
+
 	private:
 		bool m_hasInit = false;
 		data_t m_data;

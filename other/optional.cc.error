@@ -4,6 +4,8 @@
 
 struct MyStruct {
 	public:
+		MyStruct() 
+			: m_a(0), m_b(0) {}
 		MyStruct(int a, int b) 
 			: m_a(a), m_b(b) {}
 		int m_a;
@@ -12,8 +14,8 @@ struct MyStruct {
 
 void test() {
 	Optional<std::string> a("ok");
-	Optional<std::string> a("ok");
-	Optional<std::string> a("aa");
+	Optional<std::string> b("ok");
+	Optional<std::string> c("aa");
 	c = a;
 
 	Optional<MyStruct> op;
