@@ -4,8 +4,7 @@
 
 struct MyStruct {
 	public:
-		MyStruct() 
-			: m_a(0), m_b(0) {}
+		MyStruct() {}
 		MyStruct(int a, int b) 
 			: m_a(a), m_b(b) {}
 		int m_a;
@@ -19,11 +18,11 @@ void test() {
 	c = a;
 
 	Optional<MyStruct> op;
-	op.Emplace(1, 2);
+	op.emplace(1, 2);
 	MyStruct t;
 	if (op)
 		t = *op;
-	op.Emplace(3, 4);
+	op.emplace(3, 4);
 	t = *op;
 }
 

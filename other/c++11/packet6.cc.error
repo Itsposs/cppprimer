@@ -1,0 +1,57 @@
+template <typename... Args>
+struct Sum;
+
+template <typename First, typename... Rest>
+struct Sum<First, Rest...> : std::integral_constant<int, 
+	Sum<First>::value + Sum<Rest...>::value> {};
+
+template <typename Last>
+struct Sum<Last> : std::integral_constant<int, sizeof(Last)> {};
+
+
+
+//template <typename... Args>
+//struct Sum;
+//
+//template <typename First, typename... Rest>
+//struct Sum<First, Rest...> {
+//	enum { value = Sum<First>::value + Sum<Rest...>::value };
+//};
+//
+//template <typename Last>
+//struct Sum<Last> {
+//	enum { value = sizeof(Last) };
+//};
+
+template <typename First, typename... Rest>
+struct Sum {
+	enum {value = Sum<First>::value + Sum<Rest...>::value };
+};
+
+//template <typename Last>
+//struct Sum<Last> {
+//	enum { value = sizeof(Last) };
+//};
+
+// error
+//template <typename First, typename Last>
+//struct Sum<First, Last> {
+//	enum {value = sizeof(First) + sizeof(Last) };
+//};
+
+template <> struct Sum<> {
+	enum { value = 0 };
+};
+
+
+#include <iostream>
+
+void test() {
+	auto val = Sum<int, double, short>::value;
+	std::cout << "sizeof:" << val << std::endl;
+}
+
+int main(int argc, char *argv[]) {
+	test();
+	return 0;
+}

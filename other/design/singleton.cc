@@ -1,16 +1,32 @@
 
-template <typename T>
-class Singleton {
-	public:
-		template <typename... Args>
-	private:
-			Singleton();
-			virtual ~Singleton();
-			Singleton(const Singleton &rhs);
-			Singleton& operator = (const Singleton &rhs);
+#include "singleton.h"
 
-			static T *instance;
+struct A {
+	public:
+		A() {}
 };
 
-template <typename T>
-T *Singleton<T>::instance = nullptr;
+struct B {
+	public:
+		B(int x) {}
+};
+
+struct C {
+	public:
+		C(int x, double y) {}
+};
+
+void test() {
+	Singleton<A>::Instance();
+	Singleton<B>::Instance(1);
+	Singleton<C>::Instance(1, 3.14);
+
+	Singleton<A>::DestroyInstance();
+	Singleton<B>::DestroyInstance();
+	Singleton<C>::DestroyInstance();
+}
+
+int main(int argc, char *argv[]) {
+	test();
+	return 0;
+}

@@ -6,12 +6,12 @@
 //template <typename T>
 //void print(T t) { std::cout << t << std::endl; }
 
-template <typename T, typename T1, typename T2>
-void print(T t, T1 t1) { std::cout << t << " " << t1 << std::endl;
-
-void print(T t, T1 t1, T2 t2) { 
-	std::cout << t << " " << t1 << " " << t2 << std::endl;
-}
+//template <typename T, typename T1, typename T2>
+//void print(T t, T1 t1) { std::cout << t << " " << t1 << std::endl;
+//
+//void print(T t, T1 t1, T2 t2) { 
+//	std::cout << t << " " << t1 << " " << t2 << std::endl;
+//}
 
 
 template <typename T, typename ...Args>

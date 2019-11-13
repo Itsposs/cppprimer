@@ -14,8 +14,17 @@ std::ostream &print(std::ostream &os, const T &t, const Args&... rest) {
 	return print(os, rest...); // 递归调用,打印其他实参
 }
 
+#include <string>
+
+void test() {
+	int i = 1;
+	double j = 3.60;
+	std::string k = "hello world!";
+	print(std::cout, i, j, k);
+	std::cout << std::endl;
+}
 
 int main(int argc, char *argv[]) {
-
+	test();
 	return 0;
 }
