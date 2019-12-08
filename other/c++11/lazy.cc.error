@@ -1,0 +1,43 @@
+
+#include "lazy.h"
+#include <memory>
+#include <iostream>
+
+struct BigObject {
+	public:
+		BigObject() { 
+			std::cout << "lazy load big object." << std::endl; 
+		}
+};
+
+struct MyStruct {
+	public:
+		MyStruct() { 
+			obj = lazy([]{ return std::make_shared<BigObject>();});
+		}
+		void Load() { obj.Value(); }
+		Lazy<std::shared_ptr<BigObject>> obj;
+};
+
+int Foo(int x) { return x * 2; }
+
+void test() {
+	int y = 4;
+	auto lazyer1 = lazy(Foo, y);
+	std::cout << lazyer1.Value() << std::endl;
+
+	Lazy<int> lazyer2 = lazy([]{ return 12; });
+	std::cout << lazyer2.Value() << std::endl;
+
+	std::function<int(int)> func = [](int x){ return x + 3; };
+	auto lazyer3 = lazy(func, 3);
+	std::cout << lazyer3.Value() << std::endl;
+
+	MyStruct t;
+	t.Load();
+}
+
+int main(int argc, char *argv[]) {
+	test();
+	return 0;
+}
