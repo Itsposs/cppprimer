@@ -50,6 +50,7 @@ StrVec::StrVec(const StrVec &s)
 	first_free = cap = newdata.second;
 }
 
+<<<<<<< HEAD
 StrVec::StrVec(StrVec &&s) noexcept
 	: elements(s.elements), first_free(s.first_free), cap(s.cap)
 {
@@ -59,6 +60,11 @@ StrVec::StrVec(StrVec &&s) noexcept
 StrVec::~StrVec() { free(); }
 
 StrVec& StrVec::operator=(const StrVec &rhs)
+=======
+StrVec::~StrVec() { free(); }
+
+StrVec &StrVec::operator=(const StrVec &rhs)
+>>>>>>> e2763e0a43fdee023e83410a284fa63d0cbb0459
 {
 	// 调用alloc_n_copy分配内存,大小与rhs中元素占用空间一样多
 	auto data = alloc_n_copy(rhs.begin(), rhs.end());
@@ -68,6 +74,7 @@ StrVec& StrVec::operator=(const StrVec &rhs)
 	return *this;
 }
 
+<<<<<<< HEAD
 StrVec& StrVec::operator=(StrVec &&rhs) noexcept
 {
 	if (this != &rhs)
@@ -82,6 +89,8 @@ StrVec& StrVec::operator=(StrVec &&rhs) noexcept
 	return *this;
 }
 
+=======
+>>>>>>> e2763e0a43fdee023e83410a284fa63d0cbb0459
 void StrVec::reallocate()
 {
 	// 我们将分配当前大小两倍的内存空间
@@ -104,4 +113,8 @@ void StrVec::reallocate()
 	cap = elements + newcapacity;
 }
 
+<<<<<<< HEAD
 
+=======
+hello world
+>>>>>>> e2763e0a43fdee023e83410a284fa63d0cbb0459

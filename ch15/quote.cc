@@ -67,4 +67,7 @@ int main(int argc, char *argv[])
 	test();
 	return 0;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> e2763e0a43fdee023e83410a284fa63d0cbb0459

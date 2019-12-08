@@ -14,9 +14,13 @@ class StrVec
 			elements(nullptr), first_free(nullptr), cap(nullptr) { }
 		StrVec(std::initializer_list<std::string> il);
 		StrVec(const StrVec&);
+<<<<<<< HEAD
 		StrVec(StrVec&&);
 		StrVec& operator=(const StrVec&);
 		StrVec& operator=(StrVec&&);
+=======
+		StrVec& operator=(const StrVec&);
+>>>>>>> e2763e0a43fdee023e83410a284fa63d0cbb0459
 		~StrVec();
 		void push_back(const std::string&); // 拷贝元素
 		size_t size() const { return first_free - elements; }
