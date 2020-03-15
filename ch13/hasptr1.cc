@@ -1,6 +1,7 @@
-#include <iostream>
-#include <chrono>
+
 #include <string>
+#include <chrono>
+#include <iostream>
 
 
 
@@ -41,8 +42,7 @@ void testHasPtr() {
 
 	print(std::cout, ptr1);
 	print(std::cout, ptr2);
-
-	}
+}
 
 
 int main(int argc,char *argv[]) {

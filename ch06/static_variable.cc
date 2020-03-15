@@ -7,12 +7,19 @@ size_t count_calls()
 	return ++ctr;
 }
 
-int main(int argc, char *argv[])
+
+void test()
 {
-	for(size_t i = 0; i != 10; ++i)
+	size_t times = 10;
+	for(size_t i = 0; i != times; ++i)
 	{
 		std::cout << count_calls() << std::endl;
 	}
 
+}
+
+int main(int argc, char *argv[])
+{
+	test();
 	return 0;
 }
